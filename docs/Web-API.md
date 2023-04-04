@@ -549,6 +549,9 @@ Now I set the relative power limit of inverter with serialnumber `11418180xxxx` 
 ```
 ~$ curl -u "admin:password" http://192.168.10.10/api/limit/config -d 'data={"serial":"11418180xxxx", "limit_type":1, "limit_value":50}'
 {"type":"success","message":"Settings saved!"}
+
+For CURL in Windows: 
+curl -u "admin:#PASSWORD#" -F data="{serial:#YOURSERIAL#, limit_type:#0=WATTS 1=PERCENT#, limit_value:50}"   "http://#OPEN DTU IP#/api/limit/config"
 ```
 
 Then I read again the limit status. In the first answer the status is `pending`, some seconds later it changed to `OK`.
